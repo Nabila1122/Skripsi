@@ -139,61 +139,21 @@ button[type="submit"] {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">BERANDA</a>
+                    <a class="nav-link active" href="{{ route('index') }}">BERANDA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TENTANG KESEHATAN MENTAL</a>
+                    <a class="nav-link" href="{{ route('tentang_kesehatan_mental') }}">TENTANG KESEHATAN MENTAL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">KONSULTASI</a>
+                    <a class="nav-link" href="{{ route('konsultasi') }}">KONSULTASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LOGIN</a>
+                    <a class="nav-link" href="{{ route('login_admin') }}">LOGIN</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
-<!-- Main Content -->
-<div class="container mt-3">
-    <h5 class="text-left"><strong>DATA SISWA</strong></h5>
-    <form>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label for="nis" class="form-label">NIS</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" class="form-control" id="nis" placeholder="Masukkan NIS">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label for="nama" class="form-label">Nama</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label">Jenis Kelamin</label>
-            </div>
-            <div class="col-md-8">
-                <input type="radio" id="laki-laki" name="jenis_kelamin" value="Laki-laki">
-                <label for="laki-laki">Laki-laki</label><br>
-                <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
-                <label for="perempuan">Perempuan</label>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label for="usia" class="form-label">Usia</label>
-            </div>
-            <div class="col-md-8">
-                <input type="number" class="form-control" id="usia" placeholder="Masukkan Usia">
-            </div>
-        </div>
         <h5 class="text-justify mt-5"><strong>PILIH INDIKASI YANG DIALAMI</strong></h5>
         <table class="table table-bordered transparent-table">
     <thead>

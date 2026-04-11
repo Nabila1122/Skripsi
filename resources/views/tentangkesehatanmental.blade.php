@@ -126,16 +126,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">BERANDA</a>
+                    <a class="nav-link active" href="{{ route('index') }}">BERANDA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TENTANG KESEHATAN MENTAL</a>
+                    <a class="nav-link" href="{{ route('tentang_kesehatan_mental') }}">TENTANG KESEHATAN MENTAL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">KONSULTASI</a>
+                    <a class="nav-link" href="{{ route('konsultasi') }}">KONSULTASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LOGIN</a>
+                    <a class="nav-link" href="{{ route('login_admin') }}">LOGIN</a>
                 </li>
             </ul>
         </div>

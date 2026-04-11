@@ -121,26 +121,26 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-               <li class="nav-item">
-                    <a class="nav-link active" href="#">GANGGUAN</a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('gangguan') }}">GANGGUAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">INDIKASI</a>
+                    <a class="nav-link" href="{{ route('indikasi') }}">INDIKASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">HASIL KONDISI</a>
+                    <a class="nav-link" href="{{ route('hasil_konsultasi') }}">HASIL KONSULTASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">BASIS</a>
+                    <a class="nav-link" href="{{ route('basis') }}">BASIS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LAPORAN KONDISI</a>
+                    <a class="nav-link" href="{{ route('laporan_kondisi') }}">LAPORAN KONDISI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PENGATURAN</a>
+                    <a class="nav-link" href="{{ route('pengaturan') }}">PENGATURAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LOGOUT</a>
+                    <a class="nav-link" href="{{ route('login_admin') }}">LOGOUT</a>
                 </li>
             </ul>
         </div>

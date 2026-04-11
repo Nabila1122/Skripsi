@@ -34,3 +34,4 @@ Route::apiResource('indikasi', IndikasiController::class);
 Route::apiResource('basis', BasisController::class);
 Route::apiResource('siswa', SiswaController::class);
 Route::apiResource('kondisi', KondisiController::class);
+

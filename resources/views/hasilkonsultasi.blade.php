@@ -119,20 +119,19 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">BERANDA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">TENTANG KESEHATAN MENTAL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">KONSULTASI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">LOGIN</a>
-                </li>
-            </ul>
+            <ul class="navbar-nav"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link active" href="{{ route('index') }}">BERANDA</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="{{ route('tentang_kesehatan_mental') }}">TENTANG KESEHATAN MENTAL</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="{{ route('konsultasi') }}">KONSULTASI</a> 
+                    </li> 
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('login_admin') }}">LOGIN</a>
+                </li> 
+            </ul> 
         </div>
     </div>
 </nav>

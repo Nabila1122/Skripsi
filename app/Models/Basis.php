@@ -10,19 +10,18 @@ class Basis extends Model
     protected $primaryKey = 'id_basis';
 
     protected $fillable = [
-        'id_gangguan',
-        'id_indikasi',
+        'kd_gangguan',
+        'kd_indikasi',
         'bobot'
     ];
 
-    // RELASI
     public function gangguan()
     {
-        return $this->belongsTo(Gangguan::class, 'id_gangguan');
+        return $this->belongsTo(Gangguan::class, 'kd_gangguan', 'kd_gangguan');
     }
 
     public function indikasi()
     {
-        return $this->belongsTo(Indikasi::class, 'id_indikasi');
+        return $this->belongsTo(Indikasi::class, 'kd_indikasi', 'kd_indikasi');
     }
 }

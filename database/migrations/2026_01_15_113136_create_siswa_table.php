@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('siswa', function (Blueprint $table) {
-    $table->id('id_siswa');
-    $table->string('nama');
-    $table->enum('jenis_kelamin', ['L', 'P']);
-    $table->integer('usia');
-    $table->timestamps();
-});
-
+            $table->id('id_siswa'); // PK auto increment
+            $table->string('nis')->unique(); // NIS unik
+            $table->string('nama');
+            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->integer('usia');
+            $table->timestamps();
+        });
     }
 
     /**

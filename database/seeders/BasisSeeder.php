@@ -1,0 +1,147 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Basis;
+use App\Models\Gangguan;
+use App\Models\Indikasi;
+
+class BasisSeeder extends Seeder
+{
+    public function run()
+    {
+        $basisData = [
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I01','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I02','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I03','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I04','bobot'=>0.8],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I05','bobot'=>0.6],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I06','bobot'=>0.8],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I07','bobot'=>0.5],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I08','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I09','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I10','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I11','bobot'=>0.5],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I12','bobot'=>0.5],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I13','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I14','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I15','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I16','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I17','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I18','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I19','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I20','bobot'=>0.7],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I21','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I22','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I23','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I24','bobot'=>0.2],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I25','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I26','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I27','bobot'=>0.4],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I28','bobot'=>0.2],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I29','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I30','bobot'=>0.8],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I31','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I32','bobot'=>0.2],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I33','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I34','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I35','bobot'=>0.1],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I36','bobot'=>0.5],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I37','bobot'=>0.3],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I38','bobot'=>0.8],
+            ['kd_gangguan'=>'G001','kd_indikasi'=>'I39','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I01','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I02','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I03','bobot'=>0.7],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I04','bobot'=>0.2],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I05','bobot'=>0.6],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I06','bobot'=>0.9],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I07','bobot'=>0.5],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I08','bobot'=>0.6],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I09','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I10','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I11','bobot'=>0.5],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I12','bobot'=>0.5],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I13','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I14','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I15','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I16','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I17','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I18','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I19','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I20','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I21','bobot'=>0.5],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I22','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I23','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I24','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I25','bobot'=>0.2],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I26','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I27','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I28','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I29','bobot'=>0.7],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I30','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I31','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I32','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I33','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I34','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I35','bobot'=>0.3],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I36','bobot'=>0.5],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I37','bobot'=>0.1],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I38','bobot'=>0.8],
+            ['kd_gangguan'=>'G002','kd_indikasi'=>'I39','bobot'=>0.4],
+              ['kd_gangguan'=>'G003','kd_indikasi'=>'I01','bobot'=>0.9],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I02','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I03','bobot'=>0.6],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I04','bobot'=>0.5],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I05','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I06','bobot'=>0.9],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I07','bobot'=>0.6],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I08','bobot'=>0.6],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I09','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I10','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I11','bobot'=>0.6],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I12','bobot'=>0.7],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I13','bobot'=>0.7],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I14','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I15','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I16','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I17','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I18','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I19','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I20','bobot'=>0.3],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I21','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I22','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I23','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I24','bobot'=>0.5],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I25','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I26','bobot'=>0.7],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I27','bobot'=>0.7],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I28','bobot'=>0.2],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I29','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I30','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I31','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I32','bobot'=>0.2],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I33','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I34','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I35','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I36','bobot'=>0.5],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I37','bobot'=>0.1],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I38','bobot'=>0.8],
+            ['kd_gangguan'=>'G003','kd_indikasi'=>'I39','bobot'=>0.1],
+        ];
+
+        foreach($basisData as $data){
+            $gangguan = Gangguan::where('kd_gangguan', $data['kd_gangguan'])->first();
+            $indikasi = Indikasi::where('kd_indikasi', $data['kd_indikasi'])->first();
+
+            if($gangguan && $indikasi){
+                Basis::create([
+                    'kd_gangguan' => $gangguan->kd_gangguan,
+                    'kd_indikasi' => $indikasi->kd_indikasi,
+                    'bobot' => $data['bobot']
+                ]);
+            }
+        }
+    }
+}

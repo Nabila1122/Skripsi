@@ -13,7 +13,7 @@ return new class extends Migration
     {
        Schema::create('indikasi', function (Blueprint $table) {
     $table->id('id_indikasi');
-    $table->string('kode_indikasi');
+    $table->string('kd_indikasi')->unique();
     $table->string('nama_indikasi');
     $table->timestamps();
 });

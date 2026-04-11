@@ -10,7 +10,7 @@ class Indikasi extends Model
     protected $primaryKey = 'id_indikasi';
 
     protected $fillable = [
-        'kode_indikasi',
+        'kd_indikasi',
         'nama_indikasi'
     ];
 
