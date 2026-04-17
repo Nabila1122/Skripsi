@@ -9,45 +9,33 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    // Login via API
-    public function apiLogin(Request $request)
+    public function showLoginForm()
+    {
+        return view('loginadmin');
+    }
+
+    public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $admin = Admin::where('username', $request->username)->first();
 
-        if($admin && Hash::check($request->password, $admin->password)){
-            // Set session admin
+        if ($admin && Hash::check($request->password, $admin->password)) {
             Session::put('admin_id', $admin->id_admin);
             Session::put('admin_name', $admin->nama);
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Login berhasil',
-                'admin' => [
-                    'id' => $admin->id_admin,
-                    'username' => $admin->username,
-                    'nama' => $admin->nama
-                ]
-            ]);
+            return redirect()->route('gangguan'); // redirect ke gangguan
         }
 
-        return response()->json([
-            'success' => false,
-            'message' => 'Username atau password salah'
-        ], 401);
+        return back()->withErrors(['username' => 'Username atau password salah']);
     }
 
-    // Logout
     public function logout(Request $request)
     {
-        Session::flush(); // Hapus session
-        return response()->json([
-            'success' => true,
-            'message' => 'Logout berhasil'
-        ]);
+        Session::flush();
+        return redirect()->route('login_admin');
     }
 }

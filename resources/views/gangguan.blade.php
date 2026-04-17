@@ -19,16 +19,22 @@
 </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link active" href="#">GANGGUAN</a></li>
       <li class="nav-item"><a class="nav-link" href="#">INDIKASI</a></li>
       <li class="nav-item"><a class="nav-link" href="#">HASIL KONSULTASI</a></li>
     </ul>
+    <!-- Tombol Logout di kanan -->
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="btn btn-danger btn-sm" href="{{ route('logout_admin') }}">Logout</a>
+      </li>
+    </ul>
   </div>
 </nav>
+
 
 <div class="container mt-3">
     <h5><strong>DAFTAR GANGGUAN</strong></h5>
