@@ -19,6 +19,10 @@
             font-size: 14px;
             padding: 8px 12px;
         }
+        .navbar-brand img {
+            width: 20px;
+            height: 20px;
+        }
         .footer {
             background-color: #00aaff;
             color: white;
@@ -29,17 +33,87 @@
             width: 100%;
             bottom: 0;
         }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+            gap: 200px;
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .hero-image {
+            height: 2px;
+            background-image: url('https://via.placeholder.com/150');
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 20px;
+        }
+        .navbar-nav {
+            margin-right: right;
+        }
         .container {
-            margin-bottom: 60px;
+            margin-left: 10px;
+            padding-bottom: 70px;
         }
-        .table th, .table td {
-            text-align: center;
-            vertical-align: middle;
+        hr {
+            border-top: 3px solid black;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 117%;
         }
+        .consultation-btn {
+            position: fixed;
+            bottom: 60px; /* Memberikan ruang agar tombol tidak tumpang tindih dengan footer */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+        }
+        .content-section {
+            margin-left: 0;
+            width: 100%;
+        }
+        /* Memberikan ruang antara tombol dan hr */
+        .space-bottom {
+            margin-bottom: 50px; /* Memberikan ruang antara <hr> dan tombol */
+        }
+        .info-container {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Membuat dua kolom, kolom pertama untuk label dan kedua untuk nilai */
+            gap: 10px; /* Menambahkan jarak antar kolom */
+            margin-bottom: 10px;
+        }
+        .info-container strong {
+            text-align: left; /* Menjaga agar label kiri rata */
+            white-space: nowrap; /* Mencegah teks label terputus */
+        }
+        .info-container span {
+            word-wrap: break-word;
+        }
+        .info-label {
+            display: inline-block;
+            width: 150px; /* Menentukan lebar label untuk menjaga keseragaman */
+            font-weight: bold;
+        }
+        .info-value {
+            display: inline-block;
+        } 
+        .transparent-table th { background-color: #6478af; color: white; text-align: center; }
     </style>
 </head>
 <body>
+<!-- Hero Section -->
+<div class="hero-image"></div>
 
+<!-- Gambar Sejajar -->
+<div class="image-container">
+    <img src="images/icon4.png" alt="Gambar 1">
+    <img src="images/icon5.png" alt="Gambar 2">
+    <img src="images/icon2.png" alt="Gambar 3">
+</div>
 <<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -107,27 +181,24 @@
 
     <hr>
 
-    <!-- Tabel Data Siswa (tanpa tombol hapus) -->
     <h5><strong>DAFTAR SISWA</strong></h5>
-    <table class="table table-bordered" id="siswaTable">
-        <thead class="table-primary">
-            <tr>
-                <th>NIS</th>
-                <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Usia</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data akan dimuat lewat JS -->
-        </tbody>
-    </table>
+<table class="table table-bordered transparent-table" id="siswaTable">
+    <thead class="table-primary">
+        <tr>
+            <th>NIS</th>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Usia</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data akan dimuat lewat JS -->
+    </tbody>
+</table>
 </div>
 
-<div class="footer">
-    <p>Sistem Pendaftaran Siswa &copy; 2026</p>
-</div>
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
 
 <script>
 const apiUrl = 'http://127.0.0.1:8000/api/siswa';

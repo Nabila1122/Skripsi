@@ -103,7 +103,7 @@
         /* Teks informasi tambahan tidak terlalu mepet */
         .info-text {
             margin-left: 0px; /* Memberikan margin kiri */
-            margin-right: 500px; /* Memberikan margin kanan */
+            margin-right: -300px; /* Memberikan margin kanan */
             text-align: justify; /* Meratakan teks */
         }
     </style>
@@ -184,10 +184,7 @@
     </p>
 </div>
 
-<!-- Footer -->
-<div class="footer">
-    <p class="text-center">Sistem Kondisi Kesehatan Mental c2026 Nabila</p>
-</div>
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

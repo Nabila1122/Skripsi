@@ -6,6 +6,14 @@
     <title>Konsultasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin-bottom: 0px;
+        }
         .navbar {
             background-color: #00aaff;
             padding: 5px 0;
@@ -19,19 +27,6 @@
             width: 20px;
             height: 20px;
         }
-        body {
-            background-color: #f0f8ff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin-bottom: 0px;
-        }
-        .container {
-            flex: 1;
-            max-width: 600px; /* Lebar maksimal form */
-            margin-left: 20px; /* Menambahkan margin kiri untuk menyelaraskan dengan navbar */
-        }
         .footer {
             background-color: #00aaff;
             color: white;
@@ -42,6 +37,30 @@
             width: 100%;
             bottom: 0;
             margin-top: 20px;
+        }
+        .container {
+            margin-left: 10px;
+            padding-bottom: 70px;
+        }
+        hr {
+            border-top: 3px solid black;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 117%;
+        }
+        .custom-logout {
+            background-color: #f44336;  /* Warna latar belakang tombol */
+            color: white;               /* Warna teks tombol */
+            padding: 5px 15px;          /* Menambahkan padding untuk tombol */
+            border-radius: 5px;         /* Membuat sudut tombol melengkung */
+            text-transform: uppercase;  /* Membuat teks menjadi huruf kapital */
+            font-weight: bold;          /* Menebalkan teks tombol */
+            border: none;               /* Menghapus border tombol */
+            cursor: pointer;            /* Menambahkan kursor pointer saat hover */
+            transition: background-color 0.3s ease; /* Efek transisi saat hover */
+        }
+        .custom-logout:hover {
+            background-color: #d32f2f;  /* Warna latar belakang saat hover */
         }
         .image-container {
             display: flex;
@@ -69,56 +88,60 @@
         /* Menambahkan padding pada input dan membuatnya lebih rapi */
         .form-control {
             width: 100%; /* Menyesuaikan lebar input */
-        }.transparent-table {
-    width: 1000%; /* Membuat tabel memenuhi lebar kontainer */
-    max-width: 1000px; /* Membatasi lebar maksimum tabel */
-    margin: 20px auto; /* Membuat tabel berada di tengah dengan margin atas dan bawah */
-    background-color: #f0f8ff; /* Transparansi latar belakang */
-    color: black; /* Teks berwarna hitam */
-    text-align: justify; /* Meratakan teks ke kiri */
-}
-
-
+        }
+        .transparent-table {
+            width: 100%;
+            max-width: 70%; /* Menentukan lebar tabel agar tidak memenuhi layar */
+            margin-top: -60px; /* Memberikan jarak antara tabel dan teks sebelumnya */
+            margin-left: 20px; /* Menyelaraskan dengan teks sebelumnya */
+            background-color: #f0f8ff; /* Transparansi latar belakang */
+            color: black; /* Teks berwarna hitam */
+            text-align: justify; /* Rata kiri */
+            border-collapse: collapse; /* Untuk menyatukan border */
+        }
         .transparent-table th,
         .transparent-table td {
             border: 1px solid #0d0808; /* Memberikan border tipis pada tabel */
-            padding: 5px; /* Memberikan padding pada sel */
+            padding: 6px; /* Memberikan padding pada sel */
         }
-
         .transparent-table th {
             background-color: #6478af; /* Latar belakang biru untuk header tabel */
             color: white; /* Teks header tabel menjadi putih */
             text-align: center;
         }
-
-        /* Menambahkan warna latar belakang berbeda untuk baris pertama (nomor dan nama gangguan) */
         .transparent-table .highlight-row {
             background-color: #87CEEB; /* Latar belakang biru muda untuk baris pertama */
             color: black; /* Teks menjadi hitam pada baris pertama */
         }
-/* Rata kanan untuk kolom nomor */
-.transparent-table td:first-child {
-    text-align: center; /* Rata tengah untuk kolom nomor */
-}
-
-/* Membuat kolom Nama Gangguan justify */
-.transparent-table td:nth-child(2) {
-    text-align: left; /* Meratakan teks dalam kolom Nama Gangguan */
-    word-wrap: break-word; /* Memastikan teks panjang tetap terpisah ke baris berikutnya */
-}
-button[type="submit"] {
-    margin-bottom: 20px; /* Menambahkan spasi di bawah tombol */
-}
-.transparent-table td input[type="radio"] {
+        /* Rata kanan untuk kolom nomor */
+        .transparent-table td:first-child {
+            text-align: center; /* Rata tengah untuk kolom nomor */
+        }
+        /* Membuat kolom Nama Gangguan justify */
+        .transparent-table td:nth-child(2) {
+            text-align: center; /* Meratakan teks dalam kolom Nama Gangguan */
+            word-wrap: break-word; /* Memastikan teks panjang tetap terpisah ke baris berikutnya */
+        }
+        button[type="submit"] {
+            margin-bottom: 10px; /* Menambahkan spasi di bawah tombol */
+        }
+        .transparent-table td input[type="radio"] {
             display: inline; /* Menyusun radio button sejajar secara horizontal */
             margin-right: 10px; /* Memberikan jarak antara YA dan TIDAK */
-}
-.transparent-table td:last-child {
-    width: 150px;  /* Menentukan lebar kolom Pilihan */
-    text-align: justify; /* Rata tengah */
-    padding-left: 5px; /* Menambah jarak di sebelah kiri untuk ruang lebih banyak */
-    padding-right: 5px; /* Menambah jarak di sebelah kanan */
-}
+        }
+        .transparent-table td:last-child {
+            width: 150px;  /* Menentukan lebar kolom Pilihan */
+            text-align: justify; /* Rata tengah */
+            padding-left: 5px; /* Menambah jarak di sebelah kiri untuk ruang lebih banyak */
+            padding-right: 5px; /* Menambah jarak di sebelah kanan */
+        }
+        h5.text-start {
+             margin-bottom: 0px; /* Menambahkan jarak antara teks "PILIH INDIKASI YANG DIALAMI" dan tabel */
+            margin-top: 10px; /* Memberikan jarak sedikit ke atas agar lebih rapi dengan navbar */
+            font-size: 18px;  /* Menyesuaikan ukuran font sesuai kebutuhan */
+            text-align: left; /* Membuat teks sejajar dengan kiri */
+            margin-left: 15px; /* Memberikan margin kiri agar tidak terlalu menempel ke tepi */
+        }
     </style>
 </head>
 <body>
@@ -154,8 +177,10 @@ button[type="submit"] {
         </div>
     </div>
 </nav>
-        <h5 class="text-justify mt-5"><strong>PILIH INDIKASI YANG DIALAMI</strong></h5>
-        <table class="table table-bordered transparent-table">
+<div class="container mt-4">
+    <h5><strong>PILIH INDIKASI YANG DIALAMI</strong></h5>
+</div>
+<table class="table table-bordered transparent-table">
     <thead>
         <tr class="highlight-row">
             <th>No</th>
@@ -163,9 +188,8 @@ button[type="submit"] {
             <th>Indikasi</th>
             <th>Pilihan</th>
         </tr>
-            </thead>
-            <tbody>
-                <tr>
+    </thead>
+    <tr>
                     <td>1</td>
                     <td>I01</td>
                     <td>Merasakan kesedihan yang berlangsung lama</td>
@@ -515,10 +539,7 @@ button[type="submit"] {
     </form>
 </div>
 
-<!-- Footer -->
-<div class="footer">
-    <p class="text-center">Sistem Kondisi Kesehatan Mental c2026 Nabila</p>
-</div>
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

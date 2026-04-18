@@ -12,12 +12,12 @@
         }
         .navbar {
             background-color: #00aaff;
-            padding: 5px 0; /* Mengurangi padding navbar untuk membuatnya lebih ramping */
+            padding: 5px 0;
         }
         .navbar-nav .nav-link {
             color: white !important;
-            font-size: 14px; /* Mengurangi ukuran font di navbar */
-            padding: 8px 12px; /* Mengurangi padding dalam setiap link navbar */
+            font-size: 14px;
+            padding: 8px 12px;
         }
         .navbar-brand img {
             width: 20px;
@@ -33,7 +33,6 @@
             width: 100%;
             bottom: 0;
         }
-        /* Menyusun gambar secara sejajar */
         .image-container {
             display: flex;
             justify-content: center;
@@ -44,7 +43,6 @@
         .image-container img {
             width: 150px;
             height: 150px;
-            gap: 200px;
             object-fit: cover;
         }
         .hero-image {
@@ -54,59 +52,74 @@
             background-position: center;
             padding-bottom: 20px;
         }
-        /* Menempatkan Navbar di kiri */
         .navbar-nav {
-            margin-right: auto;
+            margin-right: right;
         }
         .container {
-            margin-left: 20px; /* Menambah margin kiri untuk menyelaraskan dengan navbar */
-            margin-bottom: 50px; /* Memberikan jarak bawah agar tombol tidak tertimpa footer */
+            margin-left: 10px;
+            padding-bottom: 70px;
         }
-
-        .transparent-table th,
-        .transparent-table td {
-            border: 1px solid #0d0808; /* Memberikan border tipis pada tabel */
-            padding: 5px; /* Memberikan padding pada sel */
+        hr {
+            border-top: 3px solid black;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 117%;
         }
-
-        .transparent-table th {
-            background-color: #6478af; /* Latar belakang biru untuk header tabel */
-            color: white; /* Teks header tabel menjadi putih */
-            text-align: center;
+        .consultation-btn {
+            position: fixed;
+            bottom: 60px; /* Memberikan ruang agar tombol tidak tumpang tindih dengan footer */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
         }
-
-        /* Menambahkan warna latar belakang berbeda untuk baris pertama (nomor dan nama gangguan) */
-        .transparent-table .highlight-row {
-            background-color: #87CEEB; /* Latar belakang biru muda untuk baris pertama */
-            color: black; /* Teks menjadi hitam pada baris pertama */
-        }
-        /* Rata kanan untuk kolom nomor */
-        .transparent-table td:first-child {
-            text-align: center; /* Rata tengah untuk kolom nomor */
-        }
-
-        /* Membuat kolom Nama Gangguan justify */
-        .transparent-table td:nth-child(2) {
-            text-align: left; /* Meratakan teks dalam kolom Nama Gangguan */
-            word-wrap: break-word; /* Memastikan teks panjang tetap terpisah ke baris berikutnya */
-        }
-        .transparent-table td:last-child {
-            width: 150px;  /* Menentukan lebar kolom Pilihan */
-            text-align: justify; /* Rata tengah */
-            padding-left: 5px; /* Menambah jarak di sebelah kiri untuk ruang lebih banyak */
-            padding-right: 5px; /* Menambah jarak di sebelah kanan */
-        }
-
-        /* Mengatur teks di tengah pada modal header */
-        .modal-header .modal-title {
-            text-align: center;
+        .content-section {
+            margin-left: 0;
             width: 100%;
+        }
+        /* Memberikan ruang antara tombol dan hr */
+        .space-bottom {
+            margin-bottom: 50px; /* Memberikan ruang antara <hr> dan tombol */
+        }
+        .info-container {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Membuat dua kolom, kolom pertama untuk label dan kedua untuk nilai */
+            gap: 10px; /* Menambahkan jarak antar kolom */
+            margin-bottom: 10px;
+        }
+        .info-container strong {
+            text-align: left; /* Menjaga agar label kiri rata */
+            white-space: nowrap; /* Mencegah teks label terputus */
+        }
+        .info-container span {
+            word-wrap: break-word;
+        }
+        .info-label {
+            display: inline-block;
+            width: 150px; /* Menentukan lebar label untuk menjaga keseragaman */
+            font-weight: bold;
+        }
+        .info-value {
+            display: inline-block;
+        } 
+        .transparent-table th { background-color: #6478af; color: white; text-align: center; }
+        .custom-logout {
+            background-color: #f44336;  /* Warna latar belakang tombol */
+            color: white;               /* Warna teks tombol */
+            padding: 5px 15px;          /* Menambahkan padding untuk tombol */
+            border-radius: 5px;         /* Membuat sudut tombol melengkung */
+            text-transform: uppercase;  /* Membuat teks menjadi huruf kapital */
+            border: none;               /* Menghapus border tombol */
+            cursor: pointer;            /* Menambahkan kursor pointer saat hover */
+            transition: background-color 0.3s ease; /* Efek transisi saat hover */
+        }
+        .custom-logout:hover {
+            background-color: #d32f2f;  /* Warna latar belakang saat hover */
         }
     </style>
 </head>
 <body>
 
-<!-- Hero Section (Gambar Teratas) -->
+<!-- Hero Section -->
 <div class="hero-image"></div>
 
 <!-- Gambar Sejajar -->
@@ -116,37 +129,27 @@
     <img src="images/icon2.png" alt="Gambar 3">
 </div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('gangguan') }}">GANGGUAN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('indikasi') }}">INDIKASI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('hasil_konsultasi') }}">HASIL KONSULTASI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('basis') }}">BASIS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('laporan_kondisi') }}">LAPORAN KONDISI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pengaturan') }}">PENGATURAN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login_admin') }}">LOGOUT</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="/gangguan">GANGGUAN</a></li>
+        <li class="nav-item"><a class="nav-link" href="/indikasi">INDIKASI</a></li>
+        <li class="nav-item"><a class="nav-link" href="/hasilkonsultasi">HASIL KONSULTASI</a></li>
+        <li class="nav-item"><a class="nav-link" href="/basis">BASIS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/laporankondisi">LAPORAN KONDISI</a></li>
+        <li class="nav-item"><a class="nav-link" href="/pengaturan">PENGATURAN</a></li>
+      </ul>
 
+      <!-- Tombol Logout di kanan -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="btn btn-danger btn-sm custom-logout" href="{{ route('logout_admin') }}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 <!-- Hero Section -->
 <div class="hero-image"></div>
@@ -207,10 +210,7 @@
 
 
 
-<!-- Footer -->
-<div class="footer">
-    <p>Sistem Kondisi Kesehatan Mental c2025 Nabila</p>
-</div>
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
