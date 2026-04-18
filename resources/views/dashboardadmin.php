@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -151,105 +151,64 @@
       </ul>
     </div>
   </nav>
-
-</nav>
-
-<!-- CONTENT -->
-
-<div class="container mt-4">
-    <h5><strong>PENGATURAN ADMIN</strong></h5>
-
-```
-<!-- SUCCESS -->
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-<!-- ERROR -->
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
-
-<!-- VALIDATION ERROR -->
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul style="margin-bottom:0;">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<!-- FORM -->
-<form action="{{ route('pengaturan.update') }}" method="POST">
-    @csrf
-
-    <!-- Nama -->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Nama Lengkap</label>
-        <div class="col-sm-6">
-            <input type="text" name="nama" class="form-control"
-                value="{{ old('nama', $admin->nama ?? '') }}" required>
-        </div>
-    </div>
-
-    <!-- Username -->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Username</label>
-        <div class="col-sm-6">
-            <input type="text" name="username" class="form-control"
-                value="{{ old('username', $admin->username ?? '') }}" required>
-        </div>
-    </div>
-
-    <!-- Email -->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Email</label>
-        <div class="col-sm-6">
-            <input type="email" name="email" class="form-control"
-                value="{{ old('email', $admin->email ?? '') }}" required>
-        </div>
-    </div>
-
-    <!-- No Telp -->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Nomor Telepon</label>
-        <div class="col-sm-6">
-            <input type="text" name="no_telp" class="form-control"
-                value="{{ old('no_telp', $admin->no_telp ?? '') }}">
-        </div>
-    </div>
-
-    <!-- Password -->
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Password Baru</label>
-        <div class="col-sm-6">
-            <input type="password" name="password" class="form-control">
-            <small class="text-muted">Kosongkan jika tidak ingin mengubah password</small>
-        </div>
-    </div>
-
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary">
-            Simpan Perubahan
-        </button>
-    </div>
-
-</form>
-```
-
+<!-- Tambahkan di bagian container setelah tabel gangguan -->
+<div class="container mt-5">
+    <h5 class="text-start fw-bold">PERSENTASE GANGGUAN SISWA</h5>
+    <canvas id="gangguanChart" width="400" height="200"></canvas>
 </div>
 
-<!-- FOOTER -->
+<!-- Script Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Data gangguan siswa
+    const dataGangguan = {
+        labels: ['Kecemasan', 'Stres', 'Depresi'],
+        datasets: [{
+            label: 'Persentase Siswa (%)',
+            data: [40, 35, 25], // Contoh data, bisa diganti dari database
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.7)',  // Biru
+                'rgba(255, 206, 86, 0.7)',  // Kuning
+                'rgba(255, 99, 132, 0.7)'   // Merah muda
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
 
-<div class="footer">
-    Sistem Kesehatan Mental &copy; 2025 Nabila
-</div>
+    // Konfigurasi Chart
+    const config = {
+        type: 'doughnut',  // Bisa diganti 'pie' atau 'bar'
+        data: dataGangguan,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%';
+                        }
+                    }
+                }
+            }
+        },
+    };
 
+    // Render chart
+    const gangguanChart = new Chart(
+        document.getElementById('gangguanChart'),
+        config
+    );
+</script>
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
