@@ -134,6 +134,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="/dashboardadmin">DASHBOARD ADMIN</a></li>
         <li class="nav-item"><a class="nav-link active" href="/gangguan">GANGGUAN</a></li>
         <li class="nav-item"><a class="nav-link" href="/indikasi">INDIKASI</a></li>
         <li class="nav-item"><a class="nav-link" href="/hasilkonsultasi">HASIL KONSULTASI</a></li>
@@ -150,7 +151,6 @@
       </ul>
     </div>
   </nav>
-
 <div class="container mt-3">
 <h5><strong>DAFTAR BASIS</strong></h5>
 <table class="table table-bordered transparent-table">

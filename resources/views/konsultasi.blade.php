@@ -76,7 +76,7 @@
     <div class="text-center">
         <button type="submit" class="btn btn-primary">CEK</button>
     </div>
-
+<div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
 </form>
 
 <script>

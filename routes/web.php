@@ -41,4 +41,4 @@ Route::post('/konsultasi/proses', [DiagnosaController::class, 'proses'])->name('
 use App\Http\Controllers\KondisiController;
 
 Route::get('/detailkondisi/{id}', [KondisiController::class, 'detail'])->name('detailkondisi');
-Route::get('/admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboardadmin', function () { return view('dashboardadmin'); })->name('dashboardadmin');
