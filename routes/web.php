@@ -24,3 +24,11 @@ Route::get('/laporankondisi', function () { return view('laporankondisi'); })->n
 Route::get('/tentangkesehatanmental', function () { return view('tentangkesehatanmental'); })->name('tentang_kesehatan_mental');
 Route::get('/hasilkonsultasi', function () { return view('hasilkonsultasi'); })->name('hasil_konsultasi');
 Route::get('/upload', function () { return view('upload'); });
+
+use App\Http\Controllers\PengaturanController;
+
+Route::get('/pengaturan', [PengaturanController::class, 'index'])
+    ->name('pengaturan');
+
+Route::post('/pengaturan/update', [PengaturanController::class, 'update'])
+    ->name('pengaturan.update');

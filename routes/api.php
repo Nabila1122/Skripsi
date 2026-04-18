@@ -35,3 +35,6 @@ Route::apiResource('basis', BasisController::class);
 Route::apiResource('siswa', SiswaController::class);
 Route::apiResource('kondisi', KondisiController::class);
 
+use App\Http\Controllers\PengaturanController;
+
+Route::get('/pengaturan', [PengaturanController::class, 'index'])->name('pengaturan');
