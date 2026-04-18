@@ -32,3 +32,12 @@ Route::get('/pengaturan', [PengaturanController::class, 'index'])
 
 Route::post('/pengaturan/update', [PengaturanController::class, 'update'])
     ->name('pengaturan.update');
+
+use App\Http\Controllers\DiagnosaController;
+
+Route::get('/konsultasi', [DiagnosaController::class, 'index'])->name('konsultasi');
+Route::post('/konsultasi/proses', [DiagnosaController::class, 'proses'])->name('konsultasi.proses');
+
+use App\Http\Controllers\KondisiController;
+
+Route::get('/detailkondisi/{id}', [KondisiController::class, 'detail'])->name('detailkondisi');

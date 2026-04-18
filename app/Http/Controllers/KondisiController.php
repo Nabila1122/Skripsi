@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class KondisiController extends Controller
 {
     public function index()
-    {
-        return response()->json(Kondisi::all());
-    }
+{
+    $data = Kondisi::with(['siswa', 'gangguan'])->get();
+
+    return response()->json($data);
+}
 
     public function store(Request $request)
     {
@@ -21,9 +23,11 @@ class KondisiController extends Controller
     }
 
     public function show($id)
-    {
-        return response()->json(Kondisi::findOrFail($id));
-    }
+{
+    $data = Kondisi::with(['siswa', 'gangguan'])->findOrFail($id);
+
+    return response()->json($data);
+}
 
     public function update(Request $request, $id)
     {
@@ -38,4 +42,10 @@ class KondisiController extends Controller
         Kondisi::destroy($id);
         return response()->json(['message' => 'Kondisi deleted']);
     }
+    public function detail($id)
+{
+    $data = Kondisi::with(['siswa', 'gangguan'])->findOrFail($id);
+
+    return view('detailkondisi', compact('data'));
+}
 }
