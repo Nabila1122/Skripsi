@@ -242,8 +242,59 @@
 
 </form>
 ```
+<h5><strong>Tambah Admin Baru</strong></h5>
 
-</div>
+<form id="addAdminForm">
+    @csrf
+
+    <!-- Nama Lengkap -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nama Lengkap</label>
+        <div class="col-sm-6">
+            <input type="text" name="nama" id="nama" class="form-control" required>
+        </div>
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Username</label>
+        <div class="col-sm-6">
+            <input type="text" name="username" id="username" class="form-control" required>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+    </div>
+
+    <!-- Nomor Telepon -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nomor Telepon</label>
+        <div class="col-sm-6">
+            <input type="text" name="no_telp" id="no_telp" class="form-control">
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">
+            Tambah Admin
+        </button>
+    </div>
+</form>
+
 
 <!-- FOOTER -->
 
@@ -252,4 +303,32 @@
 </div>
 
 </body>
+<script>
+document.getElementById('addAdminForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Menghindari reload halaman
+
+    // Ambil data dari form
+    const formData = new FormData(this);
+
+    // Menambahkan CSRF token secara manual
+    formData.append('_token', '{{ csrf_token() }}');
+
+    // Mengirim request ke API
+    fetch('http://127.0.0.1:8000/api/admin', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('responseMessage').innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+        } else {
+            document.getElementById('responseMessage').innerHTML = `<div class="alert alert-danger">Error: ${data.message}</div>`;
+        }
+    })
+    .catch(error => {
+        document.getElementById('responseMessage').innerHTML = `<div class="alert alert-danger">Terjadi kesalahan saat menambahkan admin.</div>`;
+    });
+});
+</script>
 </html>
