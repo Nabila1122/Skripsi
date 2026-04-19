@@ -84,6 +84,17 @@
         width: 100%;
         height: 400px;
     }
+    .navbar {
+    position: relative;
+    z-index: 1000;
+}
+#infoBox {
+    font-size: 16px;
+}
+
+#infoBox p {
+    margin-bottom: 10px;
+}
 </style>
 </head>
 <body>
@@ -113,19 +124,33 @@
 
         <!-- Tombol Logout -->
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="btn btn-danger btn-sm custom-logout" href="{{ route('logout_admin') }}">Logout</a>
-            </li>
-        </ul>
+        <li class="nav-item">
+          <a class="btn btn-danger btn-sm custom-logout" href="{{ route('logout_admin') }}">Logout</a>
+        </li>
+      </ul>
     </div>
 </nav>
 
 <!-- Persentase Gangguan Siswa -->
 <div class="container">
-    <div class="card card-chart p-3">
-        <h5 class="fw-bold mb-3">PRESENTASE GANGGUAN SISWA</h5>
+  <div class="card p-3">
+    <h5 class="fw-bold mb-3">PRESENTASE GANGGUAN SISWA</h5>
+
+    <div class="row">
+      
+      <!-- KIRI: CHART -->
+      <div class="col-md-6">
         <canvas id="gangguanChart"></canvas>
+      </div>
+
+      <!-- KANAN: INFO -->
+      <div class="col-md-6 d-flex align-items-center">
+        <div id="infoBox"></div>
+      </div>
+
     </div>
+
+  </div>
 </div>
 <!-- Footer -->
 <div class="footer">Sistem Kesehatan Mental &copy; 2025 Nabila</div>
@@ -133,44 +158,70 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-const dataGangguan = {
-    labels: ['Kecemasan', 'Stres', 'Depresi'],
-    datasets: [{
-        label: 'Persentase Siswa (%)',
-        data: [40, 35, 25],
-        backgroundColor: [
-            'rgba(54, 162, 235, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(255, 99, 132, 0.7)'
-        ],
-        borderColor: [
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(255, 99, 132, 1)'
-        ],
-        borderWidth: 1
-    }]
-};
+fetch('http://127.0.0.1:8000/api/kondisi')
+.then(res => res.json())
+.then(data => {
 
-const config = {
-    type: 'doughnut',
-    data: dataGangguan,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { position: 'bottom' },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.label + ': ' + context.raw + '%';
+    let count = {};
+    let total = data.length;
+
+    // hitung per gangguan
+    data.forEach(item => {
+        let nama = item.gangguan.nama_gangguan;
+
+        if (!count[nama]) count[nama] = 0;
+        count[nama]++;
+    });
+
+    const labels = Object.keys(count);
+    const values = Object.values(count);
+
+    // HITUNG PERSEN
+    const persen = values.map(v => ((v / total) * 100).toFixed(1));
+
+    // CHART
+    new Chart(document.getElementById('gangguanChart'), {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    'rgba(54,162,235,0.7)',
+                    'rgba(255,206,86,0.7)',
+                    'rgba(255,99,132,0.7)'
+                ]
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) {
+                            let i = ctx.dataIndex;
+                            return `${labels[i]}: ${values[i]} orang (${persen[i]}%)`;
+                        }
                     }
                 }
             }
         }
-    },
-};
+    });
 
-new Chart(document.getElementById('gangguanChart'), config);
+    // INFO BOX (KANAN)
+    let html = `<h6>Total Siswa: <b>${total}</b></h6><hr>`;
+
+    labels.forEach((label, i) => {
+        html += `
+            <p>
+                <b>${label}</b><br>
+                ${values[i]} siswa (${persen[i]}%)
+            </p>
+        `;
+    });
+
+    document.getElementById('infoBox').innerHTML = html;
+
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -27,7 +27,7 @@ class LoginController extends Controller
             Session::put('admin_id', $admin->id_admin);
             Session::put('admin_name', $admin->nama);
 
-            return redirect()->route('gangguan'); // redirect ke gangguan
+            return redirect()->route('dashboardadmin'); // redirect ke dashboard admin
         }
 
         return back()->withErrors(['username' => 'Username atau password salah']);

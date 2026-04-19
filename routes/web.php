@@ -15,6 +15,7 @@ Route::group(['middleware' => AdminAuth::class], function () {
     Route::get('/indikasi', function () { return view('indikasi'); })->name('indikasi');
     Route::get('/gangguan', function () { return view('gangguan'); })->name('gangguan');
     Route::get('/basis', function () { return view('basis'); })->name('basis');
+    Route::get('/dashboardadmin', function () { return view('dashboardadmin'); })->name('dashboardadmin');
 });
 
 // Halaman publik
@@ -41,4 +42,3 @@ Route::post('/konsultasi/proses', [DiagnosaController::class, 'proses'])->name('
 use App\Http\Controllers\KondisiController;
 
 Route::get('/detailkondisi/{id}', [KondisiController::class, 'detail'])->name('detailkondisi');
-Route::get('/dashboardadmin', function () { return view('dashboardadmin'); })->name('dashboardadmin');
